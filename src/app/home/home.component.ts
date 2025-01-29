@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GoalComponent } from "../goal/goal.component";
 import { Goal } from '../goal';
 import { CommonModule } from '@angular/common';
+import { GoalService } from '../goal.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +11,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-    goalList:Goal[] = [
-      {
-        id:'1ab',
-        description:'Finish this angular course',
-        hours: 10
-      },
-      {
-        id:'2bc',
-        description:'Learn Type Script',
-        hours: 12
-      }
-    ]
+    goalList:Goal[] = []
+
+    constructor (private goalService:GoalService){
+        this.goalList = goalService.getAllGoals();
+    }
 }
