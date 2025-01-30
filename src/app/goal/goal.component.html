@@ -1,4 +1,5 @@
 <section>
     <h2> {{goal.description}}</h2>
-    <p> hours: {{goal.hours}}</p>
+
+    <a [routerLink]="['details', goal.id]"> Details</a>
 </section>

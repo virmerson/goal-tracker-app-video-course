@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Goal } from '../goal';
+import { GoalService } from '../goal.service';
 
 @Component({
   selector: 'app-goal-details',
@@ -8,9 +10,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './goal-details.component.css'
 })
 export class GoalDetailsComponent {
-  goalId = ''
-  constructor(private route:ActivatedRoute){
-      this.goalId = this.route.snapshot.paramMap.get('id') ?? '';
-      console.log(this.goalId);
+
+  goal:Goal | undefined
+  constructor(private route:ActivatedRoute, private goalService:GoalService){
+      const goalId = this.route.snapshot.paramMap.get('id') ?? '';
+      this.goal = this.goalService.getGoalById(goalId);
   }
 }

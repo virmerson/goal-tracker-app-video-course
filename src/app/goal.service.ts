@@ -23,4 +23,8 @@ export class GoalService {
   getAllGoals(){
     return this.goalList;
   }
+
+  getGoalById(id:string){
+    return this.goalList.find( (goal)=> goal.id === id)
+  }
 }
