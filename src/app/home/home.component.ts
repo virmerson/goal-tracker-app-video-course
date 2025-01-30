@@ -11,9 +11,11 @@ import { GoalService } from '../goal.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-    goalList:Goal[] = []
+  goalList: Goal[] = []
 
-    constructor (private goalService:GoalService){
-        this.goalList = goalService.getAllGoals();
-    }
+  constructor(private goalService: GoalService) {
+    this.goalService
+    .getAllGoals()
+    .then((goalList: Goal[]) => this.goalList = goalList)
+  }
 }

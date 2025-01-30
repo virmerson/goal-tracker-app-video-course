@@ -5,26 +5,27 @@ import { Goal } from './goal';
   providedIn: 'root'
 })
 export class GoalService {
-  private goalList:Goal[] = [
-      {
-        id:'1ab',
-        description:'Finish this angular course 2',
-        hours: 10
-      },
-      {
-        id:'2bc',
-        description:'Learn Type Script 2',
-        hours: 12
-      }
-    ]
+  private url ='http://localhost:3000/goals'
 
   constructor() { }
 
-  getAllGoals(){
-    return this.goalList;
+  async getAllGoals():Promise<Goal[]>{
+    const data = await fetch(this.url)
+    return await data.json();
   }
 
-  getGoalById(id:string){
-    return this.goalList.find( (goal)=> goal.id === id)
+  async getGoalById(id:string):Promise<Goal>{
+    const data =  await fetch( `${this.url}/${id}`)
+    return await data.json()
+  }
+
+  async addNewGoal(goal:Goal){
+    await fetch(this.url, {
+      method:'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(goal)
+    });
   }
 }

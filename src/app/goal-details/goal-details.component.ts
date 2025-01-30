@@ -14,6 +14,6 @@ export class GoalDetailsComponent {
   goal:Goal | undefined
   constructor(private route:ActivatedRoute, private goalService:GoalService){
       const goalId = this.route.snapshot.paramMap.get('id') ?? '';
-      this.goal = this.goalService.getGoalById(goalId);
+      this.goalService.getGoalById(goalId).then( (goal:Goal)=> this.goal =  goal) ;
   }
 }

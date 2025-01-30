@@ -1,0 +1,7 @@
+<section>
+  <form [formGroup]="addGoalForm" (submit)="submitGoal()">
+    <input placeholder="description" formControlName='description' />
+    <input placeholder="hours" formControlName='hours'/>
+    <button type="submit"> Add </button>
+  </form>
+</section>
