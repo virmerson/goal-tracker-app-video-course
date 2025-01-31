@@ -1,29 +1,24 @@
 {
   "goals": [
     {
-      "id": "1ab",
-      "description": "Finish this angular course 3",
-      "hours": 10
+      "id": "a553",
+      "description": "teste",
+      "hours": "10"
     },
     {
-      "id": "2bc",
-      "description": "Learn Type Script 3",
-      "hours": 12
+      "id": "aa5d",
+      "description": "test2",
+      "hours": "10"
     },
     {
-      "id": "8f3f",
-      "description": "New Goal from Postman",
-      "hours": 20
+      "id": "2c23",
+      "description": "test3",
+      "hours": "10"
     },
     {
-      "id": "aae9",
-      "description": "Test new Goal",
-      "hours": "20"
-    },
-    {
-      "id": "171b",
-      "description": "One More Goal",
-      "hours": "30"
+      "id": "b5e2",
+      "description": "aaaa",
+      "hours": "10"
     }
   ]
 }

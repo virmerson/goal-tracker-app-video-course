@@ -15,7 +15,7 @@ export const routes: Routes = [
     title: 'Details Page'
   },
   {
-    path: 'newGoal',
+    path: 'new-goal',
     component: NewGoalComponent,
     title: 'New Goal'
   }

@@ -8,7 +8,7 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
   styleUrl: './new-goal.component.css'
 })
 export class NewGoalComponent {
-
+    notification:string | null = null;
     constructor(private goalService:GoalService){
 
     }
@@ -27,7 +27,11 @@ export class NewGoalComponent {
       };
 
       this.goalService.addNewGoal(newGoal).then( () => {
-          console.log('Successfully added!')
+        this.notification = 'Successfully added!';
+        this.addGoalForm.reset();
+         setTimeout(()=>{
+          this.notification = null;
+         }, 3000)
       })
 
     }

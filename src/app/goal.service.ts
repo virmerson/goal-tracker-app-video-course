@@ -28,4 +28,9 @@ export class GoalService {
       body: JSON.stringify(goal)
     });
   }
+
+  async delete(id:string){
+    await fetch (`${this.url}/${id}`, {method:'DELETE'})
+  }
+
 }

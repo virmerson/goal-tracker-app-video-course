@@ -4,6 +4,6 @@
       <button type="button">Search </button>
   </form>
 
-  <app-goal *ngFor="let goal of goalList" [goal]="goal"/>
+  <app-goal *ngFor="let goal of goalList" [goal]="goal" (goalDeleted)="onGoalDeleted($event)"/>
 
 </section>

@@ -18,4 +18,9 @@ export class HomeComponent {
     .getAllGoals()
     .then((goalList: Goal[]) => this.goalList = goalList)
   }
+
+  onGoalDeleted(goalId:string){
+    this.goalList =  this.goalList
+    .filter((goal)=> goal.id!=goalId)
+  }
 }

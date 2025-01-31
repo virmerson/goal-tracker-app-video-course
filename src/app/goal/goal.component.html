@@ -2,4 +2,5 @@
     <h2> {{goal.description}}</h2>
 
     <a [routerLink]="['details', goal.id]"> Details</a>
+    <button (click)="deleteGoal()"> Delete </button>
 </section>
