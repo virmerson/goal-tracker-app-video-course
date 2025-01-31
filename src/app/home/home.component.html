@@ -1,9 +1,9 @@
 <section>
   <form>
-      <input type="text" placeholder="Filter the goals"/>
-      <button type="button">Search </button>
+      <input type="text" placeholder="Filter the goals" #filter/>
+      <button type="button" (click)="filterResults(filter.value)">Search </button>
   </form>
 
-  <app-goal *ngFor="let goal of goalList" [goal]="goal" (goalDeleted)="onGoalDeleted($event)"/>
+  <app-goal *ngFor="let goal of filteredGoalList" [goal]="goal" (goalDeleted)="onGoalDeleted($event)"/>
 
 </section>

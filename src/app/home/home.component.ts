@@ -11,16 +11,26 @@ import { GoalService } from '../goal.service';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  goalList: Goal[] = []
+  goalList: Goal[] = [];
+  filteredGoalList:Goal[] = [];
 
   constructor(private goalService: GoalService) {
     this.goalService
     .getAllGoals()
-    .then((goalList: Goal[]) => this.goalList = goalList)
+    .then((goalList: Goal[]) => {
+      this.goalList = goalList;
+      this.filteredGoalList =  goalList;
+    })
   }
 
   onGoalDeleted(goalId:string){
     this.goalList =  this.goalList
     .filter((goal)=> goal.id!=goalId)
+  }
+
+  filterResults(text:string){
+    this.filteredGoalList =
+    this.goalList
+    .filter((goal)=>goal.description.toLowerCase().includes (text.toLowerCase()) )
   }
 }
